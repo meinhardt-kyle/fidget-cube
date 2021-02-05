@@ -28,36 +28,79 @@ def button_sequence():
     global b_index
 
     while True:
-        if b_index == 0:
-            if input.button_is_pressed(Button.A):
-                b_index += 1
-                basic.show_number(b_index)
+        if input.button_is_pressed(Button.A):
+                button_pressed = 'A'
+        if input.button_is_pressed(Button.B):
+                button_pressed = 'B'
+                
+        if b_sequence[b_index] == button_pressed:
+            # print(b_sequence[b_index])
+            b_index += 1
+            basic.show_number(b_index)
+            if b_index == len(b_sequence):
+                completed_sequences['button'] = True
                 break
-            if input.button_is_pressed(Button.B):
-                b_index = 0
-                basic.show_number(b_index)
-                break
-        if b_index == 1:
-            if input.button_is_pressed(Button.B):
-                b_index += 1
-                basic.show_number(b_index)
-                break
-            if input.button_is_pressed(Button.A):
-                b_index = 0
-                basic.show_number(b_index)
-                break
-        if b_index == 2:
-            if input.button_is_pressed(Button.A):
-                b_index += 1
-                basic.show_number(b_index)
-                break
-            if input.button_is_pressed(Button.B):
-                b_index = 0
-                basic.show_number(b_index)
-                break
-        if b_index == 3:
-            completed_sequences['button'] = True
+            break
         break
+        # else:
+        #     b_index = 0
+        #     basic.show_number(b_index)
+        #     break
+        # if b_index == 1:
+        #     if b_sequence[b_index] == button_pressed:
+        #         # print(b_sequence[b_index])
+        #         b_index += 1
+        #         basic.show_number(b_index)
+        #         break
+        #     # else:
+        #     #     b_index = 0
+        #     #     basic.show_number(b_index)
+        #     #     break
+        # if b_index == 2:
+        #     if input.button_is_pressed(Button.A):
+        #         b_index += 1
+        #         basic.show_number(b_index)
+        #         break
+        #     if input.button_is_pressed(Button.B):
+        #         b_index = 0
+        #         basic.show_number(b_index)
+        #         break
+        # if b_index == 3:
+        #     completed_sequences['button'] = True
+        #     break
+        
+
+    # while True:
+    #     if b_index == 0:
+    #         if input.button_is_pressed(Button.A):
+    #             b_index += 1
+    #             basic.show_number(b_index)
+    #             break
+    #         if input.button_is_pressed(Button.B):
+    #             b_index = 0
+    #             basic.show_number(b_index)
+    #             break
+    #     if b_index == 1:
+    #         if input.button_is_pressed(Button.B):
+    #             b_index += 1
+    #             basic.show_number(b_index)
+    #             break
+    #         if input.button_is_pressed(Button.A):
+    #             b_index = 0
+    #             basic.show_number(b_index)
+    #             break
+    #     if b_index == 2:
+    #         if input.button_is_pressed(Button.A):
+    #             b_index += 1
+    #             basic.show_number(b_index)
+    #             break
+    #         if input.button_is_pressed(Button.B):
+    #             b_index = 0
+    #             basic.show_number(b_index)
+    #             break
+    #     if b_index == 3:
+    #         completed_sequences['button'] = True
+    #     break
  
 
 def pin_sequence():
