@@ -31,10 +31,19 @@ function check_for_completion() {
 }
 
 function button_sequence() {
-    if (input.buttonIsPressed(Button.A)) {
-        completed_sequences["button"] = true
+    let button_map = {
+        "A" : Button.A,
+        "B" : Button.B,
+        "AB" : Button.AB,
     }
     
+    let sequence = ["A", "B", "A"]
+    for (let y of sequence) {
+        if (input.buttonIsPressed(button_map[y])) {
+            completed_sequences["button"] = true
+        }
+        
+    }
 }
 
 function pin_sequence() {

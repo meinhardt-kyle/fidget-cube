@@ -21,8 +21,15 @@ def check_for_completion():
     return True if completed_sequences['button'] and completed_sequences['pin'] and completed_sequences['acceleration'] and completed_sequences['light'] else False
 
 def button_sequence(): 
-    if input.button_is_pressed(Button.A):
-        completed_sequences['button'] = True
+    button_map = {
+        'A': Button.A,
+        'B': Button.B,
+        'AB': Button.AB
+    }
+    sequence = ['A', 'B', 'A']
+    for y in sequence:
+        if input.button_is_pressed(button_map[y]):
+            completed_sequences['button'] = True
 
 def pin_sequence():
     pass
@@ -42,6 +49,5 @@ while not check_for_completion():
         acceleration_sequence()
     if not completed_sequences['light']:
         light_sequence()
-
 
 basic.clear_screen()
