@@ -30,14 +30,13 @@ function check_for_completion() {
     return completed_sequences["button"] && completed_sequences["pin"] && completed_sequences["acceleration"] && completed_sequences["light"] ? true : false
 }
 
-let b_sequence = ["A", "B", "B"]
+let b_sequence = ["A", "B", "B", "A", "B", "A", "A"]
 let b_index = 0
 function button_sequence() {
     
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
             if (b_sequence[b_index] == "A") {
-                //  print(b_sequence[b_index])
                 b_index += 1
                 basic.showNumber(b_index)
                 if (b_index == b_sequence.length) {
@@ -56,7 +55,6 @@ function button_sequence() {
         
         if (input.buttonIsPressed(Button.B)) {
             if (b_sequence[b_index] == "B") {
-                //  print(b_sequence[b_index])
                 b_index += 1
                 basic.showNumber(b_index)
                 if (b_index == b_sequence.length) {
@@ -77,63 +75,6 @@ function button_sequence() {
     }
 }
 
-//  else:
-//      b_index = 0
-//      basic.show_number(b_index)
-//      break
-//  if b_index == 1:
-//      if b_sequence[b_index] == button_pressed:
-//          # print(b_sequence[b_index])
-//          b_index += 1
-//          basic.show_number(b_index)
-//          break
-//      # else:
-//      #     b_index = 0
-//      #     basic.show_number(b_index)
-//      #     break
-//  if b_index == 2:
-//      if input.button_is_pressed(Button.A):
-//          b_index += 1
-//          basic.show_number(b_index)
-//          break
-//      if input.button_is_pressed(Button.B):
-//          b_index = 0
-//          basic.show_number(b_index)
-//          break
-//  if b_index == 3:
-//      completed_sequences['button'] = True
-//      break
-//  while True:
-//      if b_index == 0:
-//          if input.button_is_pressed(Button.A):
-//              b_index += 1
-//              basic.show_number(b_index)
-//              break
-//          if input.button_is_pressed(Button.B):
-//              b_index = 0
-//              basic.show_number(b_index)
-//              break
-//      if b_index == 1:
-//          if input.button_is_pressed(Button.B):
-//              b_index += 1
-//              basic.show_number(b_index)
-//              break
-//          if input.button_is_pressed(Button.A):
-//              b_index = 0
-//              basic.show_number(b_index)
-//              break
-//      if b_index == 2:
-//          if input.button_is_pressed(Button.A):
-//              b_index += 1
-//              basic.show_number(b_index)
-//              break
-//          if input.button_is_pressed(Button.B):
-//              b_index = 0
-//              basic.show_number(b_index)
-//              break
-//      if b_index == 3:
-//          completed_sequences['button'] = True
-//      break
 function pin_sequence() {
     
 }
