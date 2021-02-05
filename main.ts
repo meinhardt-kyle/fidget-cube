@@ -52,17 +52,14 @@ function button_sequence() {
             button_pressed = null
         }
         
-        if (button_pressed == y) {
-            
-        }
-        
-        if (button_pressed == y) {
+        if (button_pressed == y && index == sequence.length) {
+            completed_sequences["button"] = true
+        } else if (button_pressed == y) {
             continue
         } else {
             break
         }
         
-        completed_sequences["button"] = true
     }
 }
 

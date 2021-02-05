@@ -39,13 +39,13 @@ def button_sequence():
         else:
             button_pressed = None
 
-        if button_pressed == y:
-            pass
-        if button_pressed == y: 
+        if button_pressed == y and index == len(sequence):
+            completed_sequences['button'] = True
+        elif button_pressed == y: 
             continue
         else:
             break
-        completed_sequences['button'] = True
+        
 
 def pin_sequence():
     pass
