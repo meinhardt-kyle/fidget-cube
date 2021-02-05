@@ -88,38 +88,6 @@ function button_sequence() {
     }
 }
 
-//  if b_index == 0 and input.button_is_pressed(Button.A):
-//      b_index += 1
-//      break
-//  if b_index == 1 and input.button_is_pressed(Button.B):
-//      b_index += 1
-//      break
-//  if b_index == 2 and input.button_is_pressed(Button.A):
-//      b_index += 1
-//      break
-//  if b_index == 3:
-//      completed_sequences['button'] = True
-//  break
-//  if b_sequence[b_index] == button_pressed:
-//      game.create_sprite(4, 4)
-//      b_index = b_index + 1
-//  for y in b_sequence:
-//      if b_sequence[b_index] == button_pressed:
-//          game.create_sprite(4, 4)
-//          b_index = b_index + 1
-//      elif b_sequence[b_index] != button_pressed and button_pressed != None:
-//          break
-//      else:
-//          continue
-//  for y in b_sequence:
-//      if button_pressed == y:
-//          index += 1
-//          continue
-//      # else:
-//      #     game.create_sprite(4, 4)
-//      #     return False
-//  completed_sequences['button'] = True 
-//  return True   
 function pin_sequence() {
     
 }
