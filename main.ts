@@ -39,7 +39,9 @@ function button_sequence() {
     }
     
     let sequence = ["A", "B", "A"]
+    let index = 0
     for (let y of sequence) {
+        index += 1
         if (button_map["A"]) {
             button_pressed = "A"
         } else if (button_map["B"]) {
@@ -51,11 +53,16 @@ function button_sequence() {
         }
         
         if (button_pressed == y) {
-            completed_sequences["button"] = true
+            
+        }
+        
+        if (button_pressed == y) {
+            continue
         } else {
             break
         }
         
+        completed_sequences["button"] = true
     }
 }
 
