@@ -22,14 +22,15 @@ def check_for_completion():
 
 def button_sequence(): 
     button_map = {
-        'A': Button.A,
-        'B': Button.B,
-        'AB': Button.AB
+        'A': input.button_is_pressed(Button.A),
+        'B': input.button_is_pressed(Button.B),
     }
     sequence = ['A', 'B', 'A']
     for y in sequence:
-        if input.button_is_pressed(button_map[y]):
-            completed_sequences['button'] = True
+        if not (y == 'A' and button_map['A']):
+            break
+        
+        completed_sequences['button'] = True
 
 def pin_sequence():
     pass

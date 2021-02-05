@@ -32,17 +32,17 @@ function check_for_completion() {
 
 function button_sequence() {
     let button_map = {
-        "A" : Button.A,
-        "B" : Button.B,
-        "AB" : Button.AB,
+        "A" : input.buttonIsPressed(Button.A),
+        "B" : input.buttonIsPressed(Button.B),
     }
     
     let sequence = ["A", "B", "A"]
     for (let y of sequence) {
-        if (input.buttonIsPressed(button_map[y])) {
-            completed_sequences["button"] = true
+        if (!(y == "A" && button_map["A"])) {
+            break
         }
         
+        completed_sequences["button"] = true
     }
 }
 
