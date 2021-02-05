@@ -20,7 +20,7 @@ def check_for_completion():
         game.create_sprite(2, 4)
     return True if completed_sequences['button'] and completed_sequences['pin'] and completed_sequences['acceleration'] and completed_sequences['light'] else False
 
-b_sequence = ['A', 'B', 'A']
+b_sequence = ['A', 'B', 'B']
 b_index = 0
 
 
@@ -29,17 +29,30 @@ def button_sequence():
 
     while True:
         if input.button_is_pressed(Button.A):
-                button_pressed = 'A'
-        if input.button_is_pressed(Button.B):
-                button_pressed = 'B'
-                
-        if b_sequence[b_index] == button_pressed:
-            # print(b_sequence[b_index])
-            b_index += 1
-            basic.show_number(b_index)
-            if b_index == len(b_sequence):
-                completed_sequences['button'] = True
-                break
+            if b_sequence[b_index] == 'A':
+                # print(b_sequence[b_index])
+                b_index += 1
+                basic.show_number(b_index)
+                if b_index == len(b_sequence):
+                    completed_sequences['button'] = True
+                    break
+            else:
+                b_index = 0
+                basic.show_number(b_index)
+            basic.clear_screen()
+            break
+        if input.button_is_pressed(Button.B):           
+            if b_sequence[b_index] == 'B':
+                # print(b_sequence[b_index])
+                b_index += 1
+                basic.show_number(b_index)
+                if b_index == len(b_sequence):
+                    completed_sequences['button'] = True
+                    break
+            else:
+                b_index = 0
+                basic.show_number(b_index)
+            basic.clear_screen()
             break
         break
         # else:

@@ -30,29 +30,46 @@ function check_for_completion() {
     return completed_sequences["button"] && completed_sequences["pin"] && completed_sequences["acceleration"] && completed_sequences["light"] ? true : false
 }
 
-let b_sequence = ["A", "B", "A"]
+let b_sequence = ["A", "B", "B"]
 let b_index = 0
 function button_sequence() {
-    let button_pressed: string;
     
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
-            button_pressed = "A"
+            if (b_sequence[b_index] == "A") {
+                //  print(b_sequence[b_index])
+                b_index += 1
+                basic.showNumber(b_index)
+                if (b_index == b_sequence.length) {
+                    completed_sequences["button"] = true
+                    break
+                }
+                
+            } else {
+                b_index = 0
+                basic.showNumber(b_index)
+            }
+            
+            basic.clearScreen()
+            break
         }
         
         if (input.buttonIsPressed(Button.B)) {
-            button_pressed = "B"
-        }
-        
-        if (b_sequence[b_index] == button_pressed) {
-            //  print(b_sequence[b_index])
-            b_index += 1
-            basic.showNumber(b_index)
-            if (b_index == b_sequence.length) {
-                completed_sequences["button"] = true
-                break
+            if (b_sequence[b_index] == "B") {
+                //  print(b_sequence[b_index])
+                b_index += 1
+                basic.showNumber(b_index)
+                if (b_index == b_sequence.length) {
+                    completed_sequences["button"] = true
+                    break
+                }
+                
+            } else {
+                b_index = 0
+                basic.showNumber(b_index)
             }
             
+            basic.clearScreen()
             break
         }
         
