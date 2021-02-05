@@ -35,19 +35,49 @@ let b_index = 0
 function button_sequence() {
     
     while (true) {
-        if (b_index == 0 && input.buttonIsPressed(Button.A)) {
-            b_index += 1
-            break
+        if (b_index == 0) {
+            if (input.buttonIsPressed(Button.A)) {
+                b_index += 1
+                basic.showNumber(b_index)
+                break
+            }
+            
+            if (input.buttonIsPressed(Button.B)) {
+                b_index = 0
+                basic.showNumber(b_index)
+                break
+            }
+            
         }
         
-        if (b_index == 1 && input.buttonIsPressed(Button.B)) {
-            b_index += 1
-            break
+        if (b_index == 1) {
+            if (input.buttonIsPressed(Button.B)) {
+                b_index += 1
+                basic.showNumber(b_index)
+                break
+            }
+            
+            if (input.buttonIsPressed(Button.A)) {
+                b_index = 0
+                basic.showNumber(b_index)
+                break
+            }
+            
         }
         
-        if (b_index == 2 && input.buttonIsPressed(Button.A)) {
-            b_index += 1
-            break
+        if (b_index == 2) {
+            if (input.buttonIsPressed(Button.A)) {
+                b_index += 1
+                basic.showNumber(b_index)
+                break
+            }
+            
+            if (input.buttonIsPressed(Button.B)) {
+                b_index = 0
+                basic.showNumber(b_index)
+                break
+            }
+            
         }
         
         if (b_index == 3) {
@@ -58,6 +88,18 @@ function button_sequence() {
     }
 }
 
+//  if b_index == 0 and input.button_is_pressed(Button.A):
+//      b_index += 1
+//      break
+//  if b_index == 1 and input.button_is_pressed(Button.B):
+//      b_index += 1
+//      break
+//  if b_index == 2 and input.button_is_pressed(Button.A):
+//      b_index += 1
+//      break
+//  if b_index == 3:
+//      completed_sequences['button'] = True
+//  break
 //  if b_sequence[b_index] == button_pressed:
 //      game.create_sprite(4, 4)
 //      b_index = b_index + 1
