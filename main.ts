@@ -32,27 +32,33 @@ function check_for_completion() {
 
 let b_sequence = ["A", "B", "A"]
 let b_index = 0
-function button_sequence(): boolean {
-    let button_pressed: string;
-    let button_map = {
-        "A" : input.buttonIsPressed(Button.A),
-        "B" : input.buttonIsPressed(Button.B),
-        "AB" : input.buttonIsPressed(Button.AB),
+function button_sequence() {
+    
+    if (b_index == 0 && input.buttonIsPressed(Button.A)) {
+        b_index += 1
     }
     
-    if (button_map["A"]) {
-        button_pressed = "A"
-    } else if (button_map["B"]) {
-        button_pressed = "AB"
-    } else if (button_map["B"]) {
-        button_pressed = "AB"
-    } else {
-        return false
+    if (b_index == 1 && input.buttonIsPressed(Button.B)) {
+        b_index += 1
     }
     
-    return true
+    if (b_index == 1 && input.buttonIsPressed(Button.A)) {
+        b_index += 1
+    }
+    
 }
 
+//  if b_sequence[b_index] == button_pressed:
+//      game.create_sprite(4, 4)
+//      b_index = b_index + 1
+//  for y in b_sequence:
+//      if b_sequence[b_index] == button_pressed:
+//          game.create_sprite(4, 4)
+//          b_index = b_index + 1
+//      elif b_sequence[b_index] != button_pressed and button_pressed != None:
+//          break
+//      else:
+//          continue
 //  for y in b_sequence:
 //      if button_pressed == y:
 //          index += 1

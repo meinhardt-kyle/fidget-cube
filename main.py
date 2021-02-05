@@ -23,22 +23,35 @@ def check_for_completion():
 b_sequence = ['A', 'B', 'A']
 b_index = 0
 
-def button_sequence(): 
-    button_map = {
-        'A': input.button_is_pressed(Button.A),
-        'B': input.button_is_pressed(Button.B),
-        'AB': input.button_is_pressed(Button.AB),
-    }
 
-    if button_map['A']:
-        button_pressed = 'A'
-    elif button_map['B']:
-        button_pressed = 'AB'
-    elif button_map['B']:
-        button_pressed = 'AB'
-    else:
-        return False
-    return True
+def button_sequence():
+    global b_index
+
+
+    if b_index == 0 and input.button_is_pressed(Button.A):
+        b_index += 1
+    if b_index == 1 and input.button_is_pressed(Button.B):
+        b_index += 1
+    if b_index == 1 and input.button_is_pressed(Button.A):
+        b_index += 1
+  
+
+
+
+    # if b_sequence[b_index] == button_pressed:
+    #     game.create_sprite(4, 4)
+    #     b_index = b_index + 1
+
+    # for y in b_sequence:
+    #     if b_sequence[b_index] == button_pressed:
+    #         game.create_sprite(4, 4)
+    #         b_index = b_index + 1
+    #     elif b_sequence[b_index] != button_pressed and button_pressed != None:
+    #         break
+    #     else:
+    #         continue
+    
+
 
     # for y in b_sequence:
         
