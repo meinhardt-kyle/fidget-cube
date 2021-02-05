@@ -24,13 +24,23 @@ def button_sequence():
     button_map = {
         'A': input.button_is_pressed(Button.A),
         'B': input.button_is_pressed(Button.B),
+        'AB': input.button_is_pressed(Button.AB),
     }
     sequence = ['A', 'B', 'A']
     for y in sequence:
-        if not (y == 'A' and button_map['A']):
+        if button_map['A']:
+            button_pressed = 'A'
+        elif button_map['B']:
+            button_pressed = 'AB'
+        elif button_map['B']:
+            button_pressed = 'AB'
+        else:
+            button_pressed = None
+
+        if button_pressed == y: 
+            completed_sequences['button'] = True
+        else:
             break
-        
-        completed_sequences['button'] = True
 
 def pin_sequence():
     pass

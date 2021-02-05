@@ -31,18 +31,31 @@ function check_for_completion() {
 }
 
 function button_sequence() {
+    let button_pressed: string;
     let button_map = {
         "A" : input.buttonIsPressed(Button.A),
         "B" : input.buttonIsPressed(Button.B),
+        "AB" : input.buttonIsPressed(Button.AB),
     }
     
     let sequence = ["A", "B", "A"]
     for (let y of sequence) {
-        if (!(y == "A" && button_map["A"])) {
+        if (button_map["A"]) {
+            button_pressed = "A"
+        } else if (button_map["B"]) {
+            button_pressed = "AB"
+        } else if (button_map["B"]) {
+            button_pressed = "AB"
+        } else {
+            button_pressed = null
+        }
+        
+        if (button_pressed == y) {
+            completed_sequences["button"] = true
+        } else {
             break
         }
         
-        completed_sequences["button"] = true
     }
 }
 
