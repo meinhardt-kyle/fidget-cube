@@ -12,11 +12,17 @@ def check_for_completion():
     if completed_sequences['pin']:
         game.create_sprite(2, 1)
         game.create_sprite(2, 0)
+    if completed_sequences['acceleration']:
+        game.create_sprite(3, 2)
+        game.create_sprite(4, 2)
+    if completed_sequences['light']:
+        game.create_sprite(2, 3)
+        game.create_sprite(2, 4)
     return True if completed_sequences['button'] and completed_sequences['pin'] and completed_sequences['acceleration'] and completed_sequences['light'] else False
 
-def button_sequence():
-    # completed_sequences['button'] = True
-    pass
+def button_sequence(): 
+    if input.button_is_pressed(Button.A):
+        completed_sequences['button'] = True
 
 def pin_sequence():
     pass
@@ -30,6 +36,12 @@ def light_sequence():
 while not check_for_completion():
     if not completed_sequences['button']:
         button_sequence()
+    if not completed_sequences['pin']:
+        pin_sequence()
+    if not completed_sequences['acceleration']:
+        acceleration_sequence()
+    if not completed_sequences['light']:
+        light_sequence()
 
 
 basic.clear_screen()
