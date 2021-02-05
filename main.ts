@@ -34,18 +34,28 @@ let b_sequence = ["A", "B", "A"]
 let b_index = 0
 function button_sequence() {
     
-    if (b_index == 0 && input.buttonIsPressed(Button.A)) {
-        b_index += 1
+    while (true) {
+        if (b_index == 0 && input.buttonIsPressed(Button.A)) {
+            b_index += 1
+            break
+        }
+        
+        if (b_index == 1 && input.buttonIsPressed(Button.B)) {
+            b_index += 1
+            break
+        }
+        
+        if (b_index == 2 && input.buttonIsPressed(Button.A)) {
+            b_index += 1
+            break
+        }
+        
+        if (b_index == 3) {
+            completed_sequences["button"] = true
+        }
+        
+        break
     }
-    
-    if (b_index == 1 && input.buttonIsPressed(Button.B)) {
-        b_index += 1
-    }
-    
-    if (b_index == 1 && input.buttonIsPressed(Button.A)) {
-        b_index += 1
-    }
-    
 }
 
 //  if b_sequence[b_index] == button_pressed:
