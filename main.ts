@@ -1,9 +1,13 @@
 //  unknown expression:  178
-let completed_patterns = {
+let completed_sequences = {
     "button" : false,
     "pins" : false,
 }
 
-while (!completed_patterns["button"] && !completed_patterns["pins"]) {
+function check_for_completion() {
+    
+}
+
+while (!check_for_completion()) {
     
 }
