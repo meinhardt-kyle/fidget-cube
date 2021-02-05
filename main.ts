@@ -11,7 +11,8 @@ function check_for_completion() {
 }
 
 function display_segments() {
-    
+    game.createSprite(0, 2)
+    game.createSprite(1, 2)
 }
 
 function button_sequence() {
@@ -33,3 +34,4 @@ function light_sequence() {
 while (!check_for_completion()) {
     display_segments()
 }
+basic.clearScreen()
