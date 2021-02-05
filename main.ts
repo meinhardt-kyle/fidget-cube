@@ -10,6 +10,22 @@ function check_for_completion() {
     return completed_sequences["button"] && completed_sequences["pin"] && completed_sequences["acceleration"] && completed_sequences["light"] ? true : false
 }
 
+function button_sequence() {
+    
+}
+
+function pin_sequence() {
+    
+}
+
+function acceleration_sequence() {
+    
+}
+
+function light_sequence() {
+    
+}
+
 while (!check_for_completion()) {
     
 }
