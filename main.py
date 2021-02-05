@@ -9,8 +9,12 @@ def check_for_completion():
     return True if completed_sequences['button'] and completed_sequences['pin'] and completed_sequences['acceleration'] and completed_sequences['light'] else False
 
 def display_segments():
-    game.create_sprite(0, 2)
-    game.create_sprite(1, 2)
+    if completed_sequences['button']:
+        game.create_sprite(0, 2)
+        game.create_sprite(1, 2)
+    if completed_sequences['pin']:
+        game.create_sprite(2, 1)
+        game.create_sprite(2, 0)
 
 def button_sequence():
     pass

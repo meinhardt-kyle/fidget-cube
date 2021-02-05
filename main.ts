@@ -11,8 +11,16 @@ function check_for_completion() {
 }
 
 function display_segments() {
-    game.createSprite(0, 2)
-    game.createSprite(1, 2)
+    if (completed_sequences["button"]) {
+        game.createSprite(0, 2)
+        game.createSprite(1, 2)
+    }
+    
+    if (completed_sequences["pin"]) {
+        game.createSprite(2, 1)
+        game.createSprite(2, 0)
+    }
+    
 }
 
 function button_sequence() {
