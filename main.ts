@@ -7,10 +7,6 @@ let completed_sequences = {
 }
 
 function check_for_completion() {
-    return completed_sequences["button"] && completed_sequences["pin"] && completed_sequences["acceleration"] && completed_sequences["light"] ? true : false
-}
-
-function display_segments() {
     if (completed_sequences["button"]) {
         game.createSprite(0, 2)
         game.createSprite(1, 2)
@@ -21,9 +17,11 @@ function display_segments() {
         game.createSprite(2, 0)
     }
     
+    return completed_sequences["button"] && completed_sequences["pin"] && completed_sequences["acceleration"] && completed_sequences["light"] ? true : false
 }
 
 function button_sequence() {
+    //  completed_sequences['button'] = True
     
 }
 
@@ -40,6 +38,9 @@ function light_sequence() {
 }
 
 while (!check_for_completion()) {
-    display_segments()
+    if (!completed_sequences["button"]) {
+        button_sequence()
+    }
+    
 }
 basic.clearScreen()
