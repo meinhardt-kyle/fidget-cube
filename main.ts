@@ -30,7 +30,9 @@ function check_for_completion() {
     return completed_sequences["button"] && completed_sequences["pin"] && completed_sequences["acceleration"] && completed_sequences["light"] ? true : false
 }
 
-function button_sequence() {
+let b_sequence = ["A", "B", "A"]
+let b_index = 0
+function button_sequence(): boolean {
     let button_pressed: string;
     let button_map = {
         "A" : input.buttonIsPressed(Button.A),
@@ -38,31 +40,28 @@ function button_sequence() {
         "AB" : input.buttonIsPressed(Button.AB),
     }
     
-    let sequence = ["A", "B", "A"]
-    let index = 0
-    for (let y of sequence) {
-        index += 1
-        if (button_map["A"]) {
-            button_pressed = "A"
-        } else if (button_map["B"]) {
-            button_pressed = "AB"
-        } else if (button_map["B"]) {
-            button_pressed = "AB"
-        } else {
-            button_pressed = null
-        }
-        
-        if (button_pressed == y && index == sequence.length) {
-            completed_sequences["button"] = true
-        } else if (button_pressed == y) {
-            continue
-        } else {
-            break
-        }
-        
+    if (button_map["A"]) {
+        button_pressed = "A"
+    } else if (button_map["B"]) {
+        button_pressed = "AB"
+    } else if (button_map["B"]) {
+        button_pressed = "AB"
+    } else {
+        return false
     }
+    
+    return true
 }
 
+//  for y in b_sequence:
+//      if button_pressed == y:
+//          index += 1
+//          continue
+//      # else:
+//      #     game.create_sprite(4, 4)
+//      #     return False
+//  completed_sequences['button'] = True 
+//  return True   
 function pin_sequence() {
     
 }

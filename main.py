@@ -20,32 +20,39 @@ def check_for_completion():
         game.create_sprite(2, 4)
     return True if completed_sequences['button'] and completed_sequences['pin'] and completed_sequences['acceleration'] and completed_sequences['light'] else False
 
+b_sequence = ['A', 'B', 'A']
+b_index = 0
+
 def button_sequence(): 
     button_map = {
         'A': input.button_is_pressed(Button.A),
         'B': input.button_is_pressed(Button.B),
         'AB': input.button_is_pressed(Button.AB),
     }
-    sequence = ['A', 'B', 'A']
-    index = 0
-    for y in sequence:
-        index += 1
-        if button_map['A']:
-            button_pressed = 'A'
-        elif button_map['B']:
-            button_pressed = 'AB'
-        elif button_map['B']:
-            button_pressed = 'AB'
-        else:
-            button_pressed = None
 
-        if button_pressed == y and index == len(sequence):
-            completed_sequences['button'] = True
-        elif button_pressed == y: 
-            continue
-        else:
-            break
+    if button_map['A']:
+        button_pressed = 'A'
+    elif button_map['B']:
+        button_pressed = 'AB'
+    elif button_map['B']:
+        button_pressed = 'AB'
+    else:
+        return False
+    return True
+
+    # for y in b_sequence:
         
+
+        
+    #     if button_pressed == y:
+    #         index += 1
+    #         continue
+    #     # else:
+    #     #     game.create_sprite(4, 4)
+    #     #     return False
+    
+    # completed_sequences['button'] = True 
+    # return True   
 
 def pin_sequence():
     pass
