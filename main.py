@@ -20,11 +20,53 @@ def check_for_completion():
         game.create_sprite(2, 4)
     return True if completed_sequences['button'] and completed_sequences['pin'] and completed_sequences['acceleration'] and completed_sequences['light'] else False
 
-b_sequence = ['A', 'B', 'B', 'A', 'B', 'A', 'A']
+def sequence_solved():
+    basic.show_leds("""
+        . . . . #
+        . . . . #
+        . . . . #
+        . . . . #
+        . . . . #
+        """)
+    basic.show_leds("""
+        . . . . #
+        . . . . #
+        . . . . #
+        . . . . #
+        # # # # #
+        """)
+    basic.show_leds("""
+        # . . . #
+        # . . . #
+        # . . . #
+        # . . . #
+        # # # # #
+        """)
+    basic.show_leds("""
+        # # # # #
+        # . . # #
+        # . . # #
+        # . . . #
+        # # # # #
+        """)
+    basic.show_leds("""
+        # # # # #
+        # . . # #
+        # # . # #
+        # # # # #
+        # # # # #
+        """)
+    basic.show_leds("""
+        # # # # #
+        # # # # #
+        # # # # #
+        # # # # #
+        # # # # #
+        """)
+
 b_index = 0
-
-
 def button_sequence():
+    b_sequence = ['A', 'B', 'B', 'A', 'B', 'A', 'A']
     global b_index
 
     while True:
@@ -34,6 +76,7 @@ def button_sequence():
                 basic.show_number(b_index)
                 if b_index == len(b_sequence):
                     completed_sequences['button'] = True
+                    sequence_solved()
                     break
             else:
                 b_index = 0
@@ -46,6 +89,7 @@ def button_sequence():
                 basic.show_number(b_index)
                 if b_index == len(b_sequence):
                     completed_sequences['button'] = True
+                    sequence_solved()
                     break
             else:
                 b_index = 0

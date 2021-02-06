@@ -30,9 +30,54 @@ function check_for_completion() {
     return completed_sequences["button"] && completed_sequences["pin"] && completed_sequences["acceleration"] && completed_sequences["light"] ? true : false
 }
 
-let b_sequence = ["A", "B", "B", "A", "B", "A", "A"]
+function sequence_solved() {
+    basic.showLeds(`
+        . . . . #
+        . . . . #
+        . . . . #
+        . . . . #
+        . . . . #
+        `)
+    basic.showLeds(`
+        . . . . #
+        . . . . #
+        . . . . #
+        . . . . #
+        # # # # #
+        `)
+    basic.showLeds(`
+        # . . . #
+        # . . . #
+        # . . . #
+        # . . . #
+        # # # # #
+        `)
+    basic.showLeds(`
+        # # # # #
+        # . . # #
+        # . . # #
+        # . . . #
+        # # # # #
+        `)
+    basic.showLeds(`
+        # # # # #
+        # . . # #
+        # # . # #
+        # # # # #
+        # # # # #
+        `)
+    basic.showLeds(`
+        # # # # #
+        # # # # #
+        # # # # #
+        # # # # #
+        # # # # #
+        `)
+}
+
 let b_index = 0
 function button_sequence() {
+    let b_sequence = ["A", "B", "B", "A", "B", "A", "A"]
     
     while (true) {
         if (input.buttonIsPressed(Button.A)) {
@@ -41,6 +86,7 @@ function button_sequence() {
                 basic.showNumber(b_index)
                 if (b_index == b_sequence.length) {
                     completed_sequences["button"] = true
+                    sequence_solved()
                     break
                 }
                 
@@ -59,6 +105,7 @@ function button_sequence() {
                 basic.showNumber(b_index)
                 if (b_index == b_sequence.length) {
                     completed_sequences["button"] = true
+                    sequence_solved()
                     break
                 }
                 
