@@ -113,13 +113,14 @@ def pin_pattern():
             sequence_solved()
             break
 
+
 acceleration_axies = {
     'y': False,
     'x': False,
     'z':False
     }
 def acceleration_pattern():
-    while True:
+    # while True:
         # if input.acceleration(Dimension.X) > 400:
         #     acceleration_axies['x'] = True
         #     sequence_solved()
@@ -130,14 +131,16 @@ def acceleration_pattern():
         # if input.acceleration(Dimension.Y) > 400:
         #     acceleration_axies['y'] = True
         #     sequence_solved()
-        if input.is_gesture(Gesture.Shake):
-            completed_sequences['acceleration'] = True
-            sequence_solved()
+    if input.is_gesture(Gesture.Shake):
+        completed_sequences['acceleration'] = True
+        sequence_solved()
+            # break
         
 
-
 def light_pattern():
-    pass
+    if input.light_level() < 50:
+        completed_sequences['light'] = True
+        sequence_solved()
 
 while not check_for_completion():
     if not completed_sequences['button']:
@@ -153,3 +156,4 @@ while not check_for_completion():
                     light_pattern()
 
 basic.clear_screen()
+basic.show_string("Hooray!")

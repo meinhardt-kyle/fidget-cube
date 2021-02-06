@@ -143,26 +143,30 @@ let acceleration_axies = {
 }
 
 function acceleration_pattern() {
-    while (true) {
-        //  if input.acceleration(Dimension.X) > 400:
-        //      acceleration_axies['x'] = True
-        //      sequence_solved()
-        //  # if acceleration_axies['x'] == True:
-        //  if input.acceleration(Dimension.Z) > 400:
-        //      acceleration_axies['z'] = True
-        //      sequence_solved()
-        //  if input.acceleration(Dimension.Y) > 400:
-        //      acceleration_axies['y'] = True
-        //      sequence_solved()
-        if (input.isGesture(Gesture.Shake)) {
-            completed_sequences["acceleration"] = true
-            sequence_solved()
-        }
-        
+    //  while True:
+    //  if input.acceleration(Dimension.X) > 400:
+    //      acceleration_axies['x'] = True
+    //      sequence_solved()
+    //  # if acceleration_axies['x'] == True:
+    //  if input.acceleration(Dimension.Z) > 400:
+    //      acceleration_axies['z'] = True
+    //      sequence_solved()
+    //  if input.acceleration(Dimension.Y) > 400:
+    //      acceleration_axies['y'] = True
+    //      sequence_solved()
+    if (input.isGesture(Gesture.Shake)) {
+        completed_sequences["acceleration"] = true
+        sequence_solved()
     }
+    
 }
 
+//  break
 function light_pattern() {
+    if (input.lightLevel() < 50) {
+        completed_sequences["light"] = true
+        sequence_solved()
+    }
     
 }
 
@@ -179,3 +183,4 @@ while (!check_for_completion()) {
     
 }
 basic.clearScreen()
+basic.showString("Hooray!")
