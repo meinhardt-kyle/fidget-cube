@@ -65,7 +65,7 @@ def sequence_solved():
     """)
 
 b_index = 0
-def button_sequence():
+def button_pattern():
     b_sequence = ['A', 'B', 'B', 'A', 'B', 'A', 'A']
     global b_index
 
@@ -99,16 +99,16 @@ def button_sequence():
         break
        
 pin_index = 0
-def pin_sequence():
-    pin_sequence = ['A', 'B', 'B', 'A', 'B', 'A', 'A']
+def pin_pattern():
+    pin_sequence = [1, 2, 1, 1, 2, 2]
     global pin_index
 
     while True:
-        if input.button_is_pressed(Button.A):
-            if pin_sequence[pin_index] == 'A':
-                b_index += 1
+        if input.pin_is_pressed(TouchPin.P1):
+            if pin_sequence[pin_index] == 1:
+                pin_index += 1
             basic.show_number(pin_index)
-            if b_index == len(pin_sequence):
+            if pin_index == len(pin_sequence):
                 completed_sequences['button'] = True
                 sequence_solved()
                 break
@@ -117,8 +117,8 @@ def pin_sequence():
             basic.show_number(pin_index)
         basic.clear_screen()
         break
-        if input.button_is_pressed(Button.B):           
-            if pin_sequence[pin_index] == 'B':
+        if input.pin_is_pressed(TouchPin.P2):           
+            if pin_sequence[pin_index] == 2:
                 pin_index += 1
                 basic.show_number(pin_index)
                 if pin_index == len(pin_sequence):
@@ -132,20 +132,20 @@ def pin_sequence():
             break
         break
 
-def acceleration_sequence():
+def acceleration_pattern():
     pass
 
-def light_sequence():
+def light_pattern():
     pass
 
 while not check_for_completion():
     if not completed_sequences['button']:
-        button_sequence()
+        button_pattern()
     if not completed_sequences['pin']:
-        pin_sequence()
+        pin_pattern()
     if not completed_sequences['acceleration']:
-        acceleration_sequence()
+        acceleration_pattern()
     if not completed_sequences['light']:
-        light_sequence()
+        light_pattern()
 
 basic.clear_screen()

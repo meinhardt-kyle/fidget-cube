@@ -76,7 +76,7 @@ function sequence_solved() {
 }
 
 let b_index = 0
-function button_sequence() {
+function button_pattern() {
     let b_sequence = ["A", "B", "B", "A", "B", "A", "A"]
     
     while (true) {
@@ -123,30 +123,75 @@ function button_sequence() {
 }
 
 let pin_index = 0
+function pin_pattern() {
+    let pin_sequence = [1, 2, 1, 1, 2, 2]
+    
+    while (true) {
+        if (input.pinIsPressed(TouchPin.P1)) {
+            if (pin_sequence[pin_index] == 1) {
+                pin_index += 1
+            }
+            
+            basic.showNumber(pin_index)
+            if (pin_index == pin_sequence.length) {
+                completed_sequences["button"] = true
+                sequence_solved()
+                break
+            }
+            
+        } else {
+            pin_index = 0
+            basic.showNumber(pin_index)
+        }
+        
+        basic.clearScreen()
+        break
+        if (input.pinIsPressed(TouchPin.P2)) {
+            if (pin_sequence[pin_index] == 2) {
+                pin_index += 1
+                basic.showNumber(pin_index)
+                if (pin_index == pin_sequence.length) {
+                    completed_sequences["button"] = true
+                    sequence_solved()
+                    break
+                }
+                
+            } else {
+                pin_index = 0
+                basic.showNumber(pin_index)
+            }
+            
+            basic.clearScreen()
+            break
+        }
+        
+        break
+    }
+}
 
-function acceleration_sequence() {
+function acceleration_pattern() {
     
 }
 
-function light_sequence() {
+function light_pattern() {
     
 }
 
 while (!check_for_completion()) {
     if (!completed_sequences["button"]) {
-        button_sequence()
+        button_pattern()
     }
     
     if (!completed_sequences["pin"]) {
-        pin_sequence()
+        pin_pattern()
     }
     
     if (!completed_sequences["acceleration"]) {
-        acceleration_sequence()
+        acceleration_pattern()
     }
     
     if (!completed_sequences["light"]) {
-        light_sequence()
+        light_pattern()
     }
     
 }
