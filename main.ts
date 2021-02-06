@@ -7,26 +7,18 @@ let completed_sequences = {
 }
 
 function check_for_completion() {
-    if (completed_sequences["button"]) {
-        game.createSprite(0, 2)
-        game.createSprite(1, 2)
-    }
-    
-    if (completed_sequences["pin"]) {
-        game.createSprite(2, 1)
-        game.createSprite(2, 0)
-    }
-    
-    if (completed_sequences["acceleration"]) {
-        game.createSprite(3, 2)
-        game.createSprite(4, 2)
-    }
-    
-    if (completed_sequences["light"]) {
-        game.createSprite(2, 3)
-        game.createSprite(2, 4)
-    }
-    
+    //  if completed_sequences['button']:
+    //      game.create_sprite(0, 2)
+    //      game.create_sprite(1, 2)
+    //  if completed_sequences['pin']:
+    //      game.create_sprite(2, 1)
+    //      game.create_sprite(2, 0)
+    //  if completed_sequences['acceleration']:
+    //      game.create_sprite(3, 2)
+    //      game.create_sprite(4, 2)
+    //  if completed_sequences['light']:
+    //      game.create_sprite(2, 3)
+    //      game.create_sprite(2, 4)
     return completed_sequences["button"] && completed_sequences["pin"] && completed_sequences["acceleration"] && completed_sequences["light"] ? true : false
 }
 
@@ -73,6 +65,7 @@ function sequence_solved() {
     # # # # #
     # # # # #
     `)
+    basic.clearScreen()
 }
 
 let b_index = 0
@@ -122,55 +115,51 @@ function button_pattern() {
     }
 }
 
-let pin_index = 0
 function pin_pattern() {
-    let pin_sequence = [1, 2, 1, 1, 2, 2]
-    
+    let pin1_pressed = false
+    let pin2_pressed = false
     while (true) {
-        if (input.pinIsPressed(TouchPin.P1)) {
-            if (pin_sequence[pin_index] == 1) {
-                pin_index += 1
-            }
-            
-            basic.showNumber(pin_index)
-            if (pin_index == pin_sequence.length) {
-                completed_sequences["button"] = true
-                sequence_solved()
-                break
-            }
-            
-        } else {
-            pin_index = 0
-            basic.showNumber(pin_index)
+        if (input.pinIsPressed(TouchPin.P0)) {
+            pin1_pressed = true
         }
         
-        basic.clearScreen()
-        break
-        if (input.pinIsPressed(TouchPin.P2)) {
-            if (pin_sequence[pin_index] == 2) {
-                pin_index += 1
-                basic.showNumber(pin_index)
-                if (pin_index == pin_sequence.length) {
-                    completed_sequences["button"] = true
-                    sequence_solved()
-                    break
-                }
-                
-            } else {
-                pin_index = 0
-                basic.showNumber(pin_index)
-            }
-            
-            basic.clearScreen()
+        if (input.pinIsPressed(TouchPin.P1)) {
+            pin2_pressed = true
+        }
+        
+        if (pin1_pressed && pin2_pressed) {
+            completed_sequences["pin"] = true
+            sequence_solved()
             break
         }
         
-        break
     }
 }
 
+let acceleration_axies = {
+    "y" : false,
+    "x" : false,
+    "z" : false,
+}
+
 function acceleration_pattern() {
-    
+    while (true) {
+        //  if input.acceleration(Dimension.X) > 400:
+        //      acceleration_axies['x'] = True
+        //      sequence_solved()
+        //  # if acceleration_axies['x'] == True:
+        //  if input.acceleration(Dimension.Z) > 400:
+        //      acceleration_axies['z'] = True
+        //      sequence_solved()
+        //  if input.acceleration(Dimension.Y) > 400:
+        //      acceleration_axies['y'] = True
+        //      sequence_solved()
+        if (input.isGesture(Gesture.Shake)) {
+            completed_sequences["acceleration"] = true
+            sequence_solved()
+        }
+        
+    }
 }
 
 function light_pattern() {
@@ -180,17 +169,11 @@ function light_pattern() {
 while (!check_for_completion()) {
     if (!completed_sequences["button"]) {
         button_pattern()
-    }
-    
-    if (!completed_sequences["pin"]) {
+    } else if (!completed_sequences["pin"]) {
         pin_pattern()
-    }
-    
-    if (!completed_sequences["acceleration"]) {
+    } else if (!completed_sequences["acceleration"]) {
         acceleration_pattern()
-    }
-    
-    if (!completed_sequences["light"]) {
+    } else if (!completed_sequences["light"]) {
         light_pattern()
     }
     
