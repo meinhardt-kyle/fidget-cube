@@ -114,11 +114,11 @@ def pin_pattern():
             break
 
 
-acceleration_axies = {
-    'y': False,
-    'x': False,
-    'z':False
-    }
+# acceleration_axies = {
+#     'y': False,
+#     'x': False,
+#     'z':False
+#     }
 def acceleration_pattern():
     # while True:
         # if input.acceleration(Dimension.X) > 400:

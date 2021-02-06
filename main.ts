@@ -136,12 +136,11 @@ function pin_pattern() {
     }
 }
 
-let acceleration_axies = {
-    "y" : false,
-    "x" : false,
-    "z" : false,
-}
-
+//  acceleration_axies = {
+//      'y': False,
+//      'x': False,
+//      'z':False
+//      }
 function acceleration_pattern() {
     //  while True:
     //  if input.acceleration(Dimension.X) > 400:
