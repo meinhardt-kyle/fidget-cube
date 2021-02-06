@@ -183,4 +183,68 @@ while (!check_for_completion()) {
     
 }
 basic.clearScreen()
+basic.showLeds(`
+    . . . . .
+    . . . . .
+    . . # . .
+    . . . . .
+    . . . . .
+    `)
+basic.showLeds(`
+    . . . . .
+    . # . # .
+    . . # . .
+    . # . # .
+    . . . . .
+    `)
+basic.showLeds(`
+    . # . . .
+    . # . # #
+    . . # . .
+    # # . # .
+    . . . # .
+    `)
+basic.showLeds(`
+    . . # . .
+    . # . # .
+    # . # . #
+    . # . # .
+    . . # . .
+    `)
+basic.showLeds(`
+    . . . # .
+    # # . # .
+    . . # . .
+    . # . # #
+    . # . . .
+    `)
+basic.showLeds(`
+    # . . . #
+    . # . # .
+    . . # . .
+    . # . # .
+    # . . . #
+    `)
+basic.showLeds(`
+    # # . # #
+    # # . # #
+    . . # . .
+    # # . # #
+    # # . # #
+    `)
+basic.showLeds(`
+    # # . # #
+    # # # # #
+    . # # # .
+    # # # # #
+    # # . # #
+    `)
+basic.showLeds(`
+    # # # # #
+    # # # # #
+    # # # # #
+    # # # # #
+    # # # # #
+    `)
+basic.clearScreen()
 basic.showString("Hooray!")

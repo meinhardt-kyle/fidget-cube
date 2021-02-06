@@ -156,4 +156,68 @@ while not check_for_completion():
                     light_pattern()
 
 basic.clear_screen()
+basic.show_leds("""
+    . . . . .
+    . . . . .
+    . . # . .
+    . . . . .
+    . . . . .
+    """)
+basic.show_leds("""
+    . . . . .
+    . # . # .
+    . . # . .
+    . # . # .
+    . . . . .
+    """)
+basic.show_leds("""
+    . # . . .
+    . # . # #
+    . . # . .
+    # # . # .
+    . . . # .
+    """)
+basic.show_leds("""
+    . . # . .
+    . # . # .
+    # . # . #
+    . # . # .
+    . . # . .
+    """)
+basic.show_leds("""
+    . . . # .
+    # # . # .
+    . . # . .
+    . # . # #
+    . # . . .
+    """)
+basic.show_leds("""
+    # . . . #
+    . # . # .
+    . . # . .
+    . # . # .
+    # . . . #
+    """)
+basic.show_leds("""
+    # # . # #
+    # # . # #
+    . . # . .
+    # # . # #
+    # # . # #
+    """)
+basic.show_leds("""
+    # # . # #
+    # # # # #
+    . # # # .
+    # # # # #
+    # # . # #
+    """)
+basic.show_leds("""
+    # # # # #
+    # # # # #
+    # # # # #
+    # # # # #
+    # # # # #
+    """)
+basic.clear_screen()
 basic.show_string("Hooray!")
