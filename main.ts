@@ -122,9 +122,7 @@ function button_sequence() {
     }
 }
 
-function pin_sequence() {
-    
-}
+let pin_index = 0
 
 function acceleration_sequence() {
     

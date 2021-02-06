@@ -98,8 +98,39 @@ def button_sequence():
             break
         break
        
+pin_index = 0
 def pin_sequence():
-    pass
+    pin_sequence = ['A', 'B', 'B', 'A', 'B', 'A', 'A']
+    global pin_index
+
+    while True:
+        if input.button_is_pressed(Button.A):
+            if pin_sequence[pin_index] == 'A':
+                b_index += 1
+            basic.show_number(pin_index)
+            if b_index == len(pin_sequence):
+                completed_sequences['button'] = True
+                sequence_solved()
+                break
+        else:
+            pin_index = 0
+            basic.show_number(pin_index)
+        basic.clear_screen()
+        break
+        if input.button_is_pressed(Button.B):           
+            if pin_sequence[pin_index] == 'B':
+                pin_index += 1
+                basic.show_number(pin_index)
+                if pin_index == len(pin_sequence):
+                    completed_sequences['button'] = True
+                    sequence_solved()
+                    break
+            else:
+                pin_index = 0
+                basic.show_number(pin_index)
+            basic.clear_screen()
+            break
+        break
 
 def acceleration_sequence():
     pass
